@@ -1,0 +1,14 @@
+{
+    "miliastra-plugin":  {
+                             "sha":  "5d988f9d0bdb5c029c35ee51a43e155d5c4a381a",
+                             "checked":  "2026-09-28 08:16:13"
+                         },
+    "beyond-simulator":  {
+                             "checked":  "2026-09-28 08:16:15",
+                             "npm":  "2.0.5"
+                         },
+    "genshin-ts":  {
+                       "checked":  "2026-09-28 08:16:20",
+                       "npm":  "0.2.3"
+                   }
+}

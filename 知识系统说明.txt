@@ -1,0 +1,19 @@
+﻿千星奇域知识系统包 v1.0 (2026-09-28)
+=====================================
+
+包含：
+1. 千星奇域开发知识手册.md  —— 全部开发知识摘要（七步流程/约束/查询方法/genshin-ts）
+2. update-knowledge.ps1     —— 自动更新检查器（下载上游完整包到 _upstream/）
+3. knowledge-state.json     —— 已核验的上游版本记录
+
+用法：
+- 放到任何电脑（建议 D:\Program Files\DeepSeek-Harness\ 或便携包目录）
+- 双击 update-knowledge.ps1 可手动检查更新；dsh 启动时会自动运行
+- 涉及千星开发时，让豆包先读手册（豆包会自行检查 _upstream/ 快照）
+
+在线重建知识（本地文件丢失时）：
+- 千星知识库 API: https://ugc.070077.xyz （节点/文档实时查询）
+- miliastra 插件:  github.com/1475505/dsh-plugin-miliastra-toolbox
+- 千星模拟器:     github.com/1475505/miliastra-beyond-simulator (npm: dsh-plugin-beyond-simulator)
+- genshin-ts:      github.com/josStorer/genshin-ts (npm: genshin-ts)
+- 任何新会话告诉豆包上述地址，即可在线重建手册
