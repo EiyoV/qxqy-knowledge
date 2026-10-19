@@ -57,7 +57,7 @@ try {
 
 # ---- 2. beyond-simulator（npm version + GitHub commit）----
 try {
-    $v = (& npm.cmd view dsh-plugin-beyond-simulator version --registry=https://registry.npmmirror.com 2>$null)
+    $v = (& cmd /c "npm view dsh-plugin-beyond-simulator version --registry=https://registry.npmmirror.com 2>nul")
     if ($state.'beyond-simulator'.'npm' -ne $v) {
         if ($null -ne $state.'beyond-simulator'.'npm') {
             $anyUpdate = $true
@@ -67,7 +67,7 @@ try {
         New-Item -ItemType Directory -Path $dest -Force | Out-Null
         $tmp = Join-Path $env:TEMP "beyond-pack"
         New-Item -ItemType Directory -Path $tmp -Force | Out-Null
-        & npm.cmd pack dsh-plugin-beyond-simulator@$v --pack-destination $tmp --registry=https://registry.npmmirror.com | Out-Null
+        & cmd /c "npm pack dsh-plugin-beyond-simulator@$v --pack-destination $tmp --registry=https://registry.npmmirror.com 2>nul" | Out-Null
         $tgz = Get-ChildItem $tmp -Filter "*.tgz" | Select-Object -First 1
         if ($tgz) { tar -xzf $tgz.FullName -C $dest; Remove-Item $tgz.FullName -Force }
         $state.'beyond-simulator' = @{ npm = $v; checked = (Get-Date -Format 'yyyy-MM-dd HH:mm:ss') }
@@ -76,7 +76,7 @@ try {
 
 # ---- 3. genshin-ts（npm version + GitHub AGENTS.md）----
 try {
-    $v2 = (& npm.cmd view genshin-ts version --registry=https://registry.npmmirror.com 2>$null)
+    $v2 = (& cmd /c "npm view genshin-ts version --registry=https://registry.npmmirror.com 2>nul")
     if ($state.'genshin-ts'.'npm' -ne $v2) {
         if ($null -ne $state.'genshin-ts'.'npm') {
             $anyUpdate = $true
@@ -86,7 +86,7 @@ try {
         New-Item -ItemType Directory -Path $dest -Force | Out-Null
         $tmp = Join-Path $env:TEMP "gsts-pack"
         New-Item -ItemType Directory -Path $tmp -Force | Out-Null
-        & npm.cmd pack genshin-ts@$v2 --pack-destination $tmp --registry=https://registry.npmmirror.com | Out-Null
+        & cmd /c "npm pack genshin-ts@$v2 --pack-destination $tmp --registry=https://registry.npmmirror.com 2>nul" | Out-Null
         $tgz2 = Get-ChildItem $tmp -Filter "*.tgz" | Select-Object -First 1
         if ($tgz2) { tar -xzf $tgz2.FullName -C $dest; Remove-Item $tgz2.FullName -Force }
         $state.'genshin-ts' = @{ npm = $v2; checked = (Get-Date -Format 'yyyy-MM-dd HH:mm:ss') }
